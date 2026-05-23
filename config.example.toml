@@ -1,0 +1,25 @@
+# Copy this file to `config.toml` and fill in your key(s).
+# `config.toml` is git-ignored so your keys never get committed.
+#
+# Every value here can also be supplied via environment variable or CLI flag.
+# Precedence:  CLI flag  >  config.toml  >  environment variable  >  default
+
+[llm]
+provider = "anthropic"     # "anthropic" or "openai"
+model = ""                 # leave blank to use the provider's default
+
+[llm.anthropic]
+# Get a key at https://console.anthropic.com/
+api_key = ""               # or set ANTHROPIC_API_KEY in your environment
+# default model when [llm].model is blank: claude-sonnet-4-6
+
+[llm.openai]
+# Get a key at https://platform.openai.com/
+api_key = ""               # or set OPENAI_API_KEY in your environment
+model = "gpt-4o"           # verify the current model string before use
+
+[run]
+out_dir = "./playwright-migration"
+max_fix_attempts = 2       # autonomous self-heal retries per file
+run_tests = false          # run pytest on the converted suite afterward
+branch = "playwright-migration"

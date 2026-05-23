@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "selenium2playwright"
+version = "0.1.0"
+description = "Autonomous agent that migrates Selenium test suites to Playwright using Claude or OpenAI."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Your Name" }]
+keywords = ["selenium", "playwright", "test-automation", "migration", "llm", "agent"]
+dependencies = [
+    "anthropic>=0.40",
+    "openai>=1.40",
+    "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.5"]
+
+[project.scripts]
+s2p = "s2p.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["s2p*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
